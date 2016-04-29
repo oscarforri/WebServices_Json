@@ -16,9 +16,16 @@ def get_elements():
 
 
 def post_elements():
-	pass
+	data = {
+		"userId": 29,
+		"id": 333,
+		"title": "OSCAR's POST",
+		"body": "Texteeeeeeeeeeeeeeeeeeeee el Barca fara doblet"}
 
-
+	resp = requests.post("http://jsonplaceholder.typicode.com/posts/",data=data)
+	if resp.status_code != 201:
+    		raise Exception('POST /posts/ %s' % (resp.status_code))
+	print 'Created task. ID: %s' % (resp.json()["id"])
 
 if __name__ == "__main__":
 
