@@ -84,34 +84,7 @@ def get_users(user_id):
         abort(404)
     return jsonify({'user': user[0]})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#METHODS = 'POST'
 
 @app.route('/posts', methods=['POST'])
 def create_post():
