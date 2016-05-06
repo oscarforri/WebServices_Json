@@ -40,11 +40,7 @@ def get_users():
     return jsonify({'users': users})
 
 
-
-
-
-
-
+#METHODS = "GET ID"
 
 @app.route('/posts/<int:post_id>', methods=['GET'])
 def get_task(post_id):
@@ -52,6 +48,70 @@ def get_task(post_id):
     if len(post) == 0:
         abort(404)
     return jsonify({'post': post[0]})
+
+@app.route('/todos/<int:todo_id>', methods=['GET'])
+def get_todos(todo_id):
+    todo = [todo for todo in todos if todo['id'] == todo_id]
+    if len(todo) == 0:
+        abort(404)
+    return jsonify({'todo': todo[0]})
+
+@app.route('/comments/<int:comment_id>', methods=['GET'])
+def get_comments(comment_id):
+    comment = [comment for comment in comments if comment['id'] == comment_id]
+    if len(comment) == 0:
+        abort(404)
+    return jsonify({'comment': comment[0]})
+
+@app.route('/albums/<int:album_id>', methods=['GET'])
+def get_albums(album_id):
+    album = [album for album in albums if album['id'] == album_id]
+    if len(album) == 0:
+        abort(404)
+    return jsonify({'album': album[0]})
+
+@app.route('/photos/<int:photo_id>', methods=['GET'])
+def get_photos(photo_id):
+    photo = [photo for photo in photos if photo['id'] == photo_id]
+    if len(photo) == 0:
+        abort(404)
+    return jsonify({'photo': photo[0]})
+
+@app.route('/users/<int:user_id>', methods=['GET'])
+def get_users(user_id):
+    user = [user for user in users if user['id'] == user_id]
+    if len(user) == 0:
+        abort(404)
+    return jsonify({'user': user[0]})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/posts', methods=['POST'])
 def create_post():
